@@ -1,0 +1,92 @@
+body {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 2rem 1.25rem 4rem;
+  background: #f3ead9;
+  color: #2b2620;
+  font-family: Georgia, "Palatino Linotype", "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  border-bottom: 3px double #a6926a;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+header h1 { letter-spacing: 0.06em; text-transform: uppercase; }
+header p { font-style: italic; color: #5a5040; }
+
+nav {
+  background: #e6d9bf;
+  border: 1px solid #c9b98f;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+a { color: #2b3f66; }
+a:hover { color: #7c2d2d; }
+
+article {
+  border: 1px solid #c9b98f;
+  border-left: 4px solid #a6926a;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+article h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5a5040;
+}
+
+article h3 { font-style: italic; }
+
+figure {
+  max-width: 300px;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #c9b98f;
+}
+figure img { width: 100%; filter: sepia(0.3); }
+figcaption { font-size: 0.85rem; font-style: italic; text-align: center; }
+
+dl {
+  padding: 0.6rem 0.9rem;
+  border-top: 1px dashed #a6926a;
+  border-bottom: 1px dashed #a6926a;
+  margin: 1rem 0;
+}
+dt { font-weight: bold; text-transform: uppercase; font-size: 0.78rem; color: #5a5040; }
+dd { margin: 0 0 0.5rem; }
+
+blockquote {
+  border-left: 3px solid #2b3f66;
+  background: rgba(43,63,102,0.06);
+  color: #2b3f66;
+  font-style: italic;
+  padding: 0.7rem 1rem;
+  margin: 1rem 0;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+th, td { border: 1px solid #a6926a; padding: 0.4rem 0.5rem; text-align: left; }
+thead th { background: #5a5040; color: #f3ead9; }
+tbody tr:nth-child(even) { background: rgba(0,0,0,0.04); }
+
+aside {
+  background: #fbf3df;
+  border: 1px dashed #a6926a;
+  padding: 1.2rem 1.4rem;
+  margin: 2rem 0;
+}
+
+footer {
+  border-top: 1px dashed #a6926a;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #5a5040;
+  padding-top: 0.8rem;
+}
