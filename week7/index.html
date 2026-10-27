@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Potion Mixer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p id="tally"></p>
+    <h1>Potion Mixer</h1>
+    <p>Pick a cauldron, add up to 4 ingredients, then bottle your brew.</p>
+    <div class="row" id="shapes"></div>
+    <div id="stage">
+      <div id="bubbleLayer"></div>
+      <svg id="cauldronSvg" viewBox="0 0 300 220" role="img" aria-label="Cauldron"></svg>
+    </div>
+    <p id="message">The cauldron is empty.</p>
+    <p id="added">Added: nothing yet</p>
+    <div id="ingredients"></div>
+    <div class="row actions">
+      <button id="bottleBtn">Bottle it</button>
+      <button id="resetBtn">Pour it out</button>
+    </div>
+    <div id="result" hidden>
+      <div id="bottle">🧪</div>
+      <h2 id="potionName"></h2>
+      <p id="potionText"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
