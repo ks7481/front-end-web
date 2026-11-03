@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Who Took the Blue Ribbon Pie?</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="site-header">
+        <h1>Who took the Blue Ribbon Pie?</h1>
+      </header>
+      <section class="status-bar" aria-label="Game status">
+        <div class="stat">
+          <span class="stat-label">Time left</span>
+          <span id="timer" class="stat-value">3:00</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Files you can open</span>
+          <span id="files-left" class="stat-value">6</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Strikes</span>
+          <span id="strikes" class="strikes"></span>
+        </div>
+        <div class="controls">
+          <button id="accuse-btn" class="btn btn-accuse" type="button">Accuse</button>
+          <button id="restart-btn" class="btn btn-quiet" type="button">Restart</button>
+        </div>
+      </section>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <aside class="case-sheet" aria-label="Case sheet">
+        <div>
+          <h2 class="sheet-title">Case No. 001: The Blue Ribbon Pie</h2>
+          <p class="sheet-summary">
+            Dot Hargrove's pie won the Blue Ribbon at noon and was left on display in the judging tent.
+            At 3:15 p.m. it was gone. The tent had been empty for about ten minutes.
+            One of these eight people took it.
+          </p>
+        </div>
+        <div class="sheet-clues">
+          <h3>What we know</h3>
+          <ol class="clue-list">
+            <li class="clue">The thief has no verified alibi for 3:15 p.m.</li>
+            <li class="clue">A sticky jam handprint was left on the judging table.</li>
+          </ol>
+        </div>
+      </aside>
+      <h2 class="visually-hidden">Suspects</h2>
+      <section id="table" class="table"></section>
+    </main>
+    <dialog id="intro-dialog">
+      <div class="dialog-body">
+        <h2>Who took the Blue Ribbon Pie?</h2>
+        <ul class="rules">
+          <li>Eight suspects sit face down. Click a file to open it. You can open only <strong>6</strong>.</li>
+          <li>Read each statement closely. Witnesses let clues slip. Go back and reread cards as you piece it together.</li>
+          <li>Stamp suspects <em>Cleared</em> or <em>Suspect</em> to keep track of your thinking.</li>
+          <li>You have <strong>3:00</strong> on the clock. When you are ready, press Accuse and pick a card.</li>
+          <li>A wrong accusation is a strike. After <strong>2</strong> strikes the case goes cold.</li>
+        </ul>
+        <div class="dialog-actions">
+          <button id="begin-btn" class="btn btn-accuse" type="button">Begin investigation</button>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="confirm-dialog">
+      <div class="dialog-body">
+        <h2 id="confirm-title"></h2>
+        <p id="confirm-text"></p>
+        <div class="dialog-actions">
+          <button id="confirm-yes" class="btn btn-accuse" type="button">Yes, accuse</button>
+          <button id="confirm-no" class="btn" type="button">Keep investigating</button>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="end-dialog" class="end-dialog">
+      <div class="dialog-body">
+        <h2 id="end-title"></h2>
+        <p id="end-text"></p>
+        <ul id="end-stats" class="end-stats"></ul>
+        <div class="dialog-actions">
+          <button id="end-again" class="btn btn-accuse" type="button">Play again</button>
+          <button id="end-look" class="btn" type="button">Look at the table</button>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
