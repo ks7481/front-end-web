@@ -1,0 +1,427 @@
+:root {
+  --desk: #26343a;
+  --paper: #f4f6f1;
+  --rule: #b5ccd8;
+  --margin: #d2625c;
+  --ink: #1c2a3a;
+  --ink-soft: #3d4f61;
+  --highlight: #f6e27a;
+  --pencil: #b4413b;
+  --wash: rgba(110, 150, 185, 0.16);
+  --key-wash: rgba(246, 226, 122, 0.3);
+  --serif: Georgia, "Iowan Old Style", Palatino, serif;
+  --hand: "Bradley Hand", "Segoe Print", "Segoe Script", "Comic Sans MS", cursive;
+  --lh: 2rem;
+  --margin-x: 4.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  background: var(--desk);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: var(--lh);
+}
+
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mystery p:last-child,
+.clue p,
+.note-list li {
+  font-family: var(--hand);
+  font-size: 1.25rem;
+}
+
+.notebook {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lh);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--lh) 3rem var(--lh) 6rem;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, transparent var(--margin-x), var(--margin) var(--margin-x), var(--margin) calc(var(--margin-x) + 2px), transparent calc(var(--margin-x) + 2px)),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 1.65rem, var(--rule) 1.65rem, var(--rule) calc(1.65rem + 1px), transparent calc(1.65rem + 1px), transparent var(--lh));
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.notebook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--margin-x) / 2 - 0.55rem);
+  width: 1.1rem;
+  background: radial-gradient(circle at center, var(--desk) 0.45rem, transparent 0.5rem) 0 0 / 1.1rem 4rem no-repeat space;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.page-header h1 {
+  position: relative;
+  top: 0.6rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: calc(var(--lh) * 2);
+}
+
+.page-header p {
+  font-family: var(--hand);
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.case {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lh);
+}
+
+.mystery {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--lh);
+  padding: calc(var(--lh) * 2) 3rem;
+  border-radius: 6px 14px 8px 12px;
+  box-shadow:
+    0 0 0 3px var(--ink),
+    0 0 0 7px var(--paper),
+    0 0 0 9px var(--ink);
+}
+
+.mystery-label {
+  align-self: flex-start;
+  height: var(--lh);
+  padding: 0 0.5rem;
+  background: var(--highlight);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+
+.mystery h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: var(--lh);
+}
+
+.clues {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lh);
+}
+
+.column-title {
+  height: var(--lh);
+  font-size: 1.5rem;
+  font-weight: 400;
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.column-title span {
+  margin-left: 0.5rem;
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--ink-soft);
+}
+
+.clue h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.clue p { color: var(--ink-soft); }
+
+.clue-key {
+  margin: 0 -0.75rem;
+  padding: 0 0.75rem;
+  background: var(--key-wash);
+}
+
+.clue-key p { color: var(--ink); }
+
+.clue-key h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clue-key h3 span {
+  padding: 0 0.35rem;
+  background: var(--highlight);
+}
+
+.clue-key h3 .tag,
+.clue-key h3 .flag {
+  padding: 0;
+  background: none;
+}
+
+.tag {
+  font-family: var(--hand);
+  font-size: 1rem;
+  color: var(--pencil);
+}
+
+.flag,
+.contradictions li::before {
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1.5px solid var(--pencil);
+  border-radius: 50%;
+  color: var(--pencil);
+  font-family: var(--hand);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.flag {
+  display: inline-flex;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.flag + .flag { margin-left: 0.2rem; }
+
+/* Keeper's log: hold the page to the light (CSS only) */
+.log-hint { margin-left: 0.4rem; }
+
+/* State variables:
+   --sweep  where the beam is (100% = off to the left, 0% = swept across)
+   --on     0 or 1, whether the light is on (used by the narrow layout)
+   --rows   height of the stacked draft line on narrow screens
+   --delay  how long the light lingers before switching off */
+.log-swap {
+  --sweep: 100%;
+  --on: 0;
+  --rows: 0fr;
+  --delay: 3s;
+  display: grid;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+/* light on: pointer over the inked words, or keyboard focus (no delay going in) */
+.log-swap:has(.log-text:hover),
+.log-swap:focus-visible {
+  --sweep: 0%;
+  --on: 1;
+  --rows: 1fr;
+  --delay: 0s;
+}
+
+.log-swap:focus-visible {
+  outline: 2px solid var(--pencil);
+  outline-offset: 2px;
+}
+
+/* on touch screens a tap focuses the line and switches the light on */
+@media (hover: none) {
+  .log-swap:focus {
+    --sweep: 0%;
+    --on: 1;
+    --rows: 1fr;
+    --delay: 0s;
+  }
+}
+
+.log-ink,
+.log-under,
+.log-swap::after { grid-area: 1 / 1; }
+
+/* the ink dims as the beam passes */
+.log-ink {
+  text-decoration: underline dotted var(--pencil);
+  text-underline-offset: 0.3em;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 40%, #000 60%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 40%, #000 60%);
+}
+
+/* the pencil beneath is uncovered behind it */
+.log-under {
+  color: var(--pencil);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, #000 40%, transparent 60%);
+  mask-image: linear-gradient(to right, #000 40%, transparent 60%);
+}
+
+/* a warm wash of light that settles over the whole line */
+.log-swap::after {
+  content: "";
+  background-image: linear-gradient(to right, rgba(246, 226, 122, 0.4) 40%, transparent 60%);
+  pointer-events: none;
+}
+
+/* the delay only applies when the light switches off, so it lingers after the cursor leaves */
+.log-ink,
+.log-under {
+  -webkit-mask-size: 250% 100%;
+  mask-size: 250% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: var(--sweep) 0;
+  mask-position: var(--sweep) 0;
+  transition: mask-position 0.9s ease var(--delay), -webkit-mask-position 0.9s ease var(--delay);
+}
+
+.log-swap::after {
+  background-repeat: no-repeat;
+  background-size: 250% 100%;
+  background-position: var(--sweep) 0;
+  transition: background-position 0.9s ease var(--delay);
+}
+
+/* only the inked words themselves trigger the light */
+.log-text {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-45 16 16)' stroke='%23f4f6f1' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M10 3h12l-3 8h-6z' fill='%233d4f61'/%3E%3Crect x='12.5' y='11' width='7' height='17' rx='2' fill='%231c2a3a'/%3E%3Crect x='10.5' y='3' width='11' height='2.5' fill='%23f6e27a'/%3E%3C/g%3E%3C/svg%3E") 7 7, zoom-in;
+}
+
+.notes {
+  margin-top: var(--lh);
+  padding: var(--lh) 2rem;
+  background: var(--wash);
+  box-shadow: inset 4px 0 0 var(--ink-soft);
+  border-radius: 2px 6px 6px 2px;
+}
+
+.notes > h2 {
+  margin-bottom: var(--lh);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.note-list h3 {
+  height: var(--lh);
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.note-list li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.note-list li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: var(--lh);
+}
+
+.contradictions ol { counter-reset: contra; }
+.contradictions li { counter-increment: contra; }
+.contradictions li::before {
+  content: counter(contra);
+  top: 0.35rem;
+  line-height: 1;
+}
+
+.questions li::before { content: "?"; color: var(--ink-soft); }
+.steps li::before { content: "\2610"; color: var(--ink); }
+
+.contradictions h3 {
+  width: fit-content;
+  padding: 0 0.35rem;
+  background: var(--highlight);
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: .9375rem;
+}
+
+@media (max-width: 900px) {
+  .notebook { padding: var(--lh) 2rem var(--lh) 5rem; }
+  .mystery { padding: calc(var(--lh) * 2) 2rem; }
+  .notes-grid { grid-template-columns: 1fr 1fr; }
+  .contradictions { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  :root { --margin-x: 2.5rem; }
+  body { padding: 0; }
+  .notebook {
+    padding: var(--lh) 1rem var(--lh) 3.25rem;
+    border-radius: 0;
+  }
+  .page-header h1 {
+    top: 0;
+    font-size: 1.75rem;
+    line-height: var(--lh);
+  }
+  .mystery { padding: calc(var(--lh) * 2) 1rem; }
+  .mystery h2 { font-size: 1.5rem; }
+  .notes { padding: var(--lh) 1rem; }
+  .clues,
+  .notes-grid { grid-template-columns: 1fr; }
+  /* log: the first draft stacks beneath the inked line instead of hiding under it */
+  .log-swap {
+    width: auto;
+    grid-template-rows: auto var(--rows);
+    transition: grid-template-rows 0.9s ease var(--delay);
+  }
+  .log-under {
+    grid-area: 2 / 1;
+    min-height: 0;
+    overflow: hidden;
+    opacity: var(--on);
+    -webkit-mask-image: none;
+    mask-image: none;
+    transition: opacity 0.9s ease var(--delay);
+  }
+  .log-swap::after { grid-area: 1 / 1 / 3 / 2; }
+  .page-footer {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .log-swap,
+  .log-ink,
+  .log-under,
+  .log-swap::after { transition: none; }
+}
