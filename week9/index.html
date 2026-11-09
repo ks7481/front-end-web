@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Commissions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section id="doorway" class="doorway">
+        <p>You just bought the old pottery studio on the corner. The seller left a single key on the floor.</p>
+        <svg id="doorSvg" viewBox="0 0 300 360">
+          <rect class="wall" width="300" height="360"/>
+          <rect class="floor" y="312" width="300" height="48"/>
+          <rect class="room" x="80" y="62" width="140" height="250"/>
+          <g class="sign"><path d="M110 18v16M190 18v16" class="chain"/><rect x="90" y="30" width="120" height="26" rx="3"/><text x="150" y="48" text-anchor="middle">Closed.</text></g>
+          <g class="door-swing">
+            <rect class="door" x="80" y="62" width="140" height="250" rx="3"/>
+            <rect class="panel" x="96" y="78" width="108" height="86" rx="2"/>
+            <rect class="panel" x="96" y="178" width="108" height="118" rx="2"/>
+            <circle class="knob" cx="202" cy="188" r="7"/>
+            <circle class="plate" cx="202" cy="216" r="6"/>
+            <path class="slot" d="M202 213v6"/>
+          </g>
+          <rect class="under-slip" x="120" y="308" width="44" height="6"/>
+          <g id="key" transform="translate(38 335)" tabindex="0">
+            <circle r="24" fill="transparent"/>
+            <circle class="key-bow" r="10"/><circle r="4" class="key-hole"/>
+            <path class="key-shaft" d="M10 0H46M36 0v9M44 0v7"/>
+          </g>
+        </svg>
+        <p id="doorMsg" class="door-msg"></p>
+      </section>
+
+      <div id="game" class="layout" hidden>
+        <div class="left">
+          <p class="tag">Every night a slip of paper slides under the studio door. The handwriting is neat, and the paper is cold, as if something lifeless had held it.</p>
+
+          <section id="slip" class="slip">
+            <p id="slipCount" class="slip-count"></p>
+            <p id="slipText"></p>
+            <p id="slipFoot" class="slip-foot"></p>
+          </section>
+
+          <div class="studio">
+            <svg id="potSvg" viewBox="0 0 200 260">
+              <ellipse cx="100" cy="244" rx="80" ry="8" class="wheel"/>
+              <g id="pot"></g>
+            </svg>
+
+            <form id="kilnForm" autocomplete="off">
+              <div class="slider"><label for="h">Height</label><input type="range" id="h" min="60" max="220" value="120"><output id="hOut"></output></div>
+              <div class="slider"><label for="b">Belly width</label><input type="range" id="b" min="50" max="140" value="90"><output id="bOut"></output></div>
+              <div class="slider"><label for="n">Neck width</label><input type="range" id="n" min="20" max="120" value="50"><output id="nOut"></output></div>
+              <div class="slider"><label for="w">Wall thickness</label><input type="range" id="w" min="2" max="16" value="8"><output id="wOut"></output></div>
+
+              <p id="warn" class="warn"></p>
+
+              <div class="line">
+                <label class="sr-only" for="potName">Name your pot</label>
+                <input id="potName" maxlength="24" placeholder="Name your pot">
+                <button type="submit" id="fire">Fire it</button>
+              </div>
+            </form>
+          </div>
+
+          <p id="result" class="result"></p>
+
+          <section id="ending" class="ending" hidden>
+            <p id="endingText"></p>
+            <button id="again" type="button">Start a new night</button>
+          </section>
+        </div>
+
+        <div class="right">
+          <aside class="shelf-unit">
+            <ul id="shelf" class="shelf"></ul>
+          </aside>
+          <div id="clayShelf" class="clay-shelf"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
