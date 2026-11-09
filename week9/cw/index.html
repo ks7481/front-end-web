@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seed Vault</title>
+    <link rel="stylesheet" href="style.css">
+      <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="top" id="top">
+      <h1>Seed Vault</h1>
+
+      <form id="plant-form" autocomplete="off">
+        <label for="word" class="sr-only">Word to plant</label>
+        <div class="row">
+          <input id="word" type="text" maxlength="40" placeholder="Plant a word">
+          <button type="submit">Plant</button>
+        </div>
+      </form>
+
+      <p id="message" class="message" aria-live="polite">The vault is empty.</p>
+      <button id="clear" class="quiet" type="button">Empty the vault</button>
+    </main>
+
+    <div id="plants" class="plants"></div>
+    <div class="ground"></div>
+    <div id="tip" class="tip" role="tooltip" hidden></div>
+  </body>
+</html>
