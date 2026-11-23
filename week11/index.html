@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daylight Ribbon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#chart">Skip to the chart</a>
+
+    <header>
+      <h1>Daylight Ribbon</h1>
+      <p class="sub">A year of daylight. Pick a city or two to compare.</p>
+    </header>
+
+    <main>
+      <form id="cityForm" autocomplete="off">
+        <div class="field a">
+          <label for="cityA">City one</label>
+          <input id="cityA" name="cityA" type="text" value="Singapore" required>
+          <select id="pickA" aria-label="Other matches for city one" hidden></select>
+        </div>
+        <div class="field b">
+          <label for="cityB">City two <span class="opt">(optional)</span></label>
+          <input id="cityB" name="cityB" type="text" value="Harbin">
+          <select id="pickB" aria-label="Other matches for city two" hidden></select>
+        </div>
+        <button type="submit">Draw ribbons</button>
+      </form>
+      <p id="status" role="status"></p>
+
+      <p id="takeaway" class="takeaway"></p>
+
+      <figure id="chart">
+        <svg id="svg" role="img" aria-labelledby="svgTitle svgDesc" preserveAspectRatio="xMidYMid meet">
+          <title id="svgTitle">Daylight hours across one year</title>
+          <desc id="svgDesc">Each ribbon is as thick as the day is long. The text summary above and the table below give the same information.</desc>
+        </svg>
+        <figcaption>Ribbon thickness = hours between sunrise and sunset. The dashed lines mark a 12-hour day.</figcaption>
+      </figure>
+
+      <section class="controls" aria-label="Date controls">
+        <button id="play" type="button" aria-pressed="false">Play the year</button>
+        <label for="day">Day of year</label>
+        <input id="day" type="range" min="1" max="365" value="80">
+        <output id="readout" for="day"></output>
+      </section>
+
+      <section class="tablewrap">
+        <button id="tableToggle" type="button" aria-expanded="false" aria-controls="tableBox">View as table</button>
+        <div id="tableBox" hidden></div>
+      </section>
+
+      <section class="notes">
+        <h2>Where this comes from</h2>
+        <p>City names and latitudes: <a href="https://open-meteo.com/en/docs/geocoding-api">Open-Meteo Geocoding API</a>, using GeoNames data (CC BY 4.0).</p>
+      </section>
+    </main>
+  </body>
+</html>
